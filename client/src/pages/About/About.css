@@ -1,0 +1,58 @@
+.about-hero {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+}
+
+.about-hero .subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 10px auto 0;
+  opacity: 0.9;
+}
+
+.about-content {
+  padding: 80px 20px;
+}
+
+.mission-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.mission-card {
+  text-align: center;
+}
+
+.mission-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.mission-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.team-section {
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .mission-section {
+    grid-template-columns: 1fr;
+  }
+}

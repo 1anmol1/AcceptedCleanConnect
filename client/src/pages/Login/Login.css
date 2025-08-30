@@ -1,0 +1,144 @@
+/* Container for the entire page, ensuring it's centered and has a clean background */
+.login-page-container {
+  display: flex;
+  align-items: flex-start; /* Aligns card to the top */
+  justify-content: center;
+  min-height: calc(100vh - 80px); /* Full height minus navbar */
+  padding: 60px 20px; /* More vertical padding */
+  background-color: var(--surface-color);
+}
+
+/* The main card that holds the form */
+.form-container {
+  width: 100%;
+  max-width: 480px; /* Slightly wider for better spacing */
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out forwards; /* Entry animation */
+}
+
+.form-card {
+  padding: 40px;
+}
+
+/* Role Selector Tabs for a clearer UI */
+.role-selector {
+  display: flex;
+  margin-bottom: 30px;
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  padding: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.role-selector button {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color-light);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px; /* Slightly smaller radius for inner element */
+  transition: all var(--transition-speed) ease;
+}
+
+.role-selector button.active {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form headers for better visual hierarchy */
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.form-card p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-color-light);
+}
+
+/* Form group styling for better spacing and UX */
+.form-group {
+  margin-bottom: 20px;
+  position: relative; /* For animations or icons later */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Button styling for a clear call to action */
+.btn-block {
+  width: 100%;
+  padding: 14px; /* Taller button for easier clicking */
+  font-size: 1.1rem;
+  font-weight: 600; /* Bolder text */
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Text and button to toggle between Login and Sign Up */
+.toggle-text {
+  margin-top: 25px;
+  text-align: center;
+  color: var(--text-color-light);
+  font-size: 0.9rem;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 5px; /* Larger clickable area */
+  font-size: 0.9rem;
+}
+
+.toggle-button:hover {
+  text-decoration: underline;
+}
+
+/* Error message styling for clear feedback */
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 15px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: var(--border-radius);
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* Responsive design for a better mobile experience */
+@media (max-width: 500px) {
+  .login-page-container {
+    padding: 20px 10px; /* Less padding on mobile */
+  }
+
+  .form-card {
+    padding: 30px 25px; /* Adjust padding for smaller screens */
+  }
+
+  .form-card h2 {
+    font-size: 1.8rem;
+  }
+}

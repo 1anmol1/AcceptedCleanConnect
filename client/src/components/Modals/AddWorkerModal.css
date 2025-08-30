@@ -1,0 +1,79 @@
+/* --- Modal Overlay --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  animation: fadeIn 0.3s ease;
+}
+
+/* --- Modal Content --- */
+.modal-content {
+  background: var(--background-color);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  animation: slideUp 0.4s ease-out;
+}
+
+/* --- Modal Header --- */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-color-light);
+  transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--text-color);
+}
+
+/* --- Modal Form Styles --- */
+/* The modal uses the shared form styles defined in NewComplaint.css and others */
+.modal-body .styled-form .form-group {
+  margin-bottom: 20px;
+}
+
+.modal-body .styled-form label {
+  font-weight: 500;
+}
+
+.modal-body .btn-submit {
+  margin-top: 10px;
+}
+.modal-body .btn-submit:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 20px;
+    max-width: 90%;
+  }
+}
