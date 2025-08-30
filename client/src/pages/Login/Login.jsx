@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth'; // Import the hook
+import { useAuth } from '../../hooks/useAuth';
+import api from '../../config/axios';
 import './Login.css';
 
 const Login = () => {
@@ -37,16 +37,27 @@ const Login = () => {
     }
     
     try {
-      const response = await axios.post(url, payload);
+      console.log('Sending login request with payload:', payload);
+      const response = await api.post(url, payload);
+      console.log('Login response:', response.data);
       
+      if (!response.data || !response.data.token) {
+        throw new Error('Invalid response from server');
+      }
+
       // Use the centralized login function to update state and localStorage
       login(response.data);
 
       const userRole = response.data.user.role.toLowerCase();
       navigate(`/${userRole}/dashboard`);
 
-    } catch (err) { // --- THIS BLOCK IS NOW CORRECTED ---
-      setError(err.response?.data?.error || 'An error occurred. Please try again.');
+    } catch (err) {
+      console.error('Login error:', err);
+      setError(
+        err.response?.data?.error || 
+        err.message || 
+        'An error occurred. Please try again.'
+      );
     }
   };
 
