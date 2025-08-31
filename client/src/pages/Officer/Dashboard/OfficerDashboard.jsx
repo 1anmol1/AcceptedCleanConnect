@@ -43,12 +43,10 @@ const OfficerDashboard = () => {
           <div className="officer-map-container">
             {loading && <p className="loading-text">Loading Map...</p>}
             {error && <p className="error-message">{error}</p>}
-            {!loading && !error && (
-              <MapComponent 
-                center={ichalkaranjiCenter} 
-                markers={bins} 
-              />
-            )}
+            <MapComponent 
+              center={ichalkaranjiCenter} 
+              markers={(!loading && !error) ? bins : []} 
+            />
           </div>
         </div>
         <div className="quick-actions">

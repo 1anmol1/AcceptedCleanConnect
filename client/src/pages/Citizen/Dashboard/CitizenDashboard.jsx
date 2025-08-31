@@ -45,12 +45,10 @@ const CitizenDashboard = () => {
         {/* The functional MapComponent is now rendered here */}
         {loading && <p className="loading-text">Loading Map & Bin Data...</p>}
         {error && <p className="error-message">{error}</p>}
-        {!loading && !error && (
-          <MapComponent 
-            center={ichalkaranjiCenter} 
-            markers={bins} 
-          />
-        )}
+        <MapComponent 
+          center={ichalkaranjiCenter} 
+          markers={(!loading && !error) ? bins : []} 
+        />
       </div>
 
       <div className="dashboard-actions">
