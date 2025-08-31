@@ -1,5 +1,8 @@
 import React from 'react';
-import '../../Shared/SharedForm.css'; // Import the new shared CSS
+import MapComponent from '../../../components/Map/MapComponent';
+import '../../Shared/SharedForm.css';
+
+const ichalkaranjiCenter = { lat: 16.7033, lng: 74.4685 };
 
 const UpdateBin = () => {
   return (
@@ -25,6 +28,9 @@ const UpdateBin = () => {
           </div>
           <button type="submit" className="btn btn-primary btn-submit">Save Bin Details</button>
         </form>
+        <div className="map-container" style={{marginTop: '2rem'}}>
+          <MapComponent center={ichalkaranjiCenter} />
+        </div>
       </div>
     </div>
   );

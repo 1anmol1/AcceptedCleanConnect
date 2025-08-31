@@ -16,21 +16,15 @@ const OfficerDashboard = () => {
   useEffect(() => {
     const fetchBins = async () => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('/api/bins', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+        const response = await axios.get('/api/bins');
         setBins(response.data.data);
       } catch (err) {
-        setError('Failed to load bin data. Please try again.');
+        setError('Failed to load bin data.');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
-
     fetchBins();
   }, []);
 

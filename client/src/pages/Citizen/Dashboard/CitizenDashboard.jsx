@@ -18,24 +18,16 @@ const CitizenDashboard = () => {
   useEffect(() => {
     const fetchBins = async () => {
       try {
-        // Get the authentication token from local storage
-        const token = localStorage.getItem('token');
-
-        // Make a GET request to your backend API endpoint, including the auth token
-        const response = await axios.get('/api/bins', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+        // Make a GET request to your backend API endpoint without auth
+        const response = await axios.get('/api/bins');
         setBins(response.data.data);
       } catch (err) {
-        setError('Failed to load bin data. Please ensure you are logged in and try again.');
+        setError('Failed to load bin data.');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
-
     fetchBins();
   }, []);
 
