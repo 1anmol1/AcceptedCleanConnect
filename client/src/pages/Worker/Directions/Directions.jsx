@@ -1,17 +1,20 @@
 import React from 'react';
 import { FaListOl } from 'react-icons/fa';
 import MapComponent from '../../../components/Map/MapComponent';
-import dashboardHeroImage from '/src/assets/route.png'; // Import the local hero image
+import dashboardHeroImage from '/src/assets/dashboard-hero.jpg';
 import './Directions.css';
+
+// Mock data directly available for presentation
+const mockRoute = [
+  { binId: 'ICK-03', address: 'Near DKTE College', status: 'Overflow', location: { coordinates: [74.4582, 16.7091] } },
+  { binId: 'ICK-01', address: 'Near Rajwada', status: 'Full', location: { coordinates: [74.4685, 16.7033] } },
+  { binId: 'ICK-02', address: 'Near Bus Stand', status: 'Half-Full', location: { coordinates: [74.4751, 16.6989] } },
+];
 
 const ichalkaranjiCenter = { lat: 16.7033, lng: 74.4685 };
 
 const Directions = () => {
-  const route = [
-    { binId: 'ICK-03', address: 'Near DKTE College', status: 'Overflow', location: { coordinates: [74.4582, 16.7091] } },
-    { binId: 'ICK-01', address: 'Near Rajwada', status: 'Full', location: { coordinates: [74.4685, 16.7033] } },
-    { binId: 'ICK-02', address: 'Near Bus Stand', status: 'Half-Full', location: { coordinates: [74.4751, 16.6989] } },
-  ];
+  const route = mockRoute;
 
   const routeCoordinates = route.map(stop => ({
     lat: stop.location.coordinates[1],
@@ -22,7 +25,7 @@ const Directions = () => {
     <div className="directions-page container fade-in">
       <header 
         className="page-header"
-        style={{ backgroundImage: `url(${dashboardHeroImage})` }} // Apply image as inline style
+        style={{ backgroundImage: `url(${dashboardHeroImage})` }}
       >
         <h1>Today's Assigned Route</h1>
         <p>Follow the optimized route for efficient collection.</p>

@@ -3,7 +3,7 @@ import { FaUsers, FaTools } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import MapComponent from '../../../components/Map/MapComponent';
 import axios from 'axios';
-import dashboardHeroImage from '/src/assets/citizendash.png'; // Corrected image path for consistency
+import dashboardHeroImage from '../../../assets/citizendash.png'; // Make sure this image exists
 import './OfficerDashboard.css';
 
 const ichalkaranjiCenter = { lat: 16.7033, lng: 74.4685 };
@@ -16,15 +16,17 @@ const OfficerDashboard = () => {
   useEffect(() => {
     const fetchBins = async () => {
       try {
+        // The authentication token has been removed from this API call
         const response = await axios.get('/api/bins');
         setBins(response.data.data);
       } catch (err) {
-        setError('Failed to load bin data.');
+        setError('Failed to load bin data. Please try again.');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
+
     fetchBins();
   }, []);
 
@@ -43,10 +45,12 @@ const OfficerDashboard = () => {
           <div className="officer-map-container">
             {loading && <p className="loading-text">Loading Map...</p>}
             {error && <p className="error-message">{error}</p>}
-            <MapComponent 
-              center={ichalkaranjiCenter} 
-              markers={(!loading && !error) ? bins : []} 
-            />
+            {!loading && !error && (
+              <MapComponent 
+                center={ichalkaranjiCenter} 
+                markers={bins} 
+              />
+            )}
           </div>
         </div>
         <div className="quick-actions">

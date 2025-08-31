@@ -3,6 +3,7 @@ import { FaRoute, FaExclamationCircle, FaCheckDouble } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import MapComponent from '../../../components/Map/MapComponent';
 import axios from 'axios';
+import { mockBins } from '../../../mockBins';
 import dashboardHeroImage from '/src/assets/workerdash.png';
 import './WorkerDashboard.css';
 
@@ -19,7 +20,8 @@ const WorkerDashboard = () => {
         const response = await axios.get('/api/bins');
         setBins(response.data.data);
       } catch (err) {
-        setError('Failed to load bin data.');
+        setError('Failed to load bin data. Showing mock data.');
+  setBins(mockBins);
         console.error(err);
       } finally {
         setLoading(false);
